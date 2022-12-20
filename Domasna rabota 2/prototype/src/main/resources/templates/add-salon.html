@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Salon</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/add}">
+    <div class="p-3 m-3">
+        <div class="mb-3">
+            <label for="name" class="form-label">Salon name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Salon address:</label>
+            <input type="text" class="form-control" id="address" name="address" >
+        </div>
+    </div>
+    <input type="submit" class="btn btn-secondary btn-lg"/>
+</form>
+
+
+</body>
+</html>

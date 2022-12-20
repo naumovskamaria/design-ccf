@@ -14,4 +14,13 @@ public class Salon {
     private Long id;
     private String name;
     private String address;
+
+    public Salon(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public Salon() {
+
+    }
 }
