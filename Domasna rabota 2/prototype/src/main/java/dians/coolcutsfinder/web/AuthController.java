@@ -4,6 +4,7 @@ import dians.coolcutsfinder.model.User;
 import dians.coolcutsfinder.model.UserDto;
 import dians.coolcutsfinder.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,14 +25,16 @@ public class AuthController {
 
     // handler method to handle home page request
     @GetMapping("/")
-    public String home(){
-        return "index";
+    public String home(Model model){
+        model.addAttribute("bodyContent","index");
+        return "master-page";
     }
 
     // handler method to handle login request
     @GetMapping("/login")
-    public String login(){
-        return "login";
+    public String login(Model model){
+        model.addAttribute("bodyContent","login");
+        return "master-page";
     }
 
     // handler method to handle user registration form request
@@ -40,7 +43,8 @@ public class AuthController {
         // create model object to store form data
         UserDto user = new UserDto();
         model.addAttribute("user", user);
-        return "register";
+        model.addAttribute("bodyContent","register");
+        return "master-page";
     }
 
     // handler method to handle user registration form submit request
@@ -69,6 +73,7 @@ public class AuthController {
     public String users(Model model){
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);
-        return "users";
+        model.addAttribute("bodyContent","users");
+        return "master-page";
     }
 }

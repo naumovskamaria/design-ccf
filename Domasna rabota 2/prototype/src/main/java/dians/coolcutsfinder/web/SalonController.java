@@ -22,7 +22,8 @@ public class SalonController {
     @GetMapping("/salons")
     public String showSalons(Model model){
         model.addAttribute("salons",SalonService.getAllSalons());
-        return "salons";
+        model.addAttribute("bodyContent","salons");
+        return "master-page";
     }
 
     @GetMapping("/salons/{id}")
@@ -31,6 +32,7 @@ public class SalonController {
         Salon salon = this.SalonService.getSalonById(id);
         model.addAttribute("salonList",salonList);
         model.addAttribute("salon",salon);
-        return "salonInfo";
+        model.addAttribute("bodyContent","salonInfo");
+        return "master-page";
     }
 }
