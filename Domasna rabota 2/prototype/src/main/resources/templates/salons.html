@@ -29,12 +29,11 @@
                 </div>
             </div>
         </div>
+        <div sec:authorise="hasRole('ADMIN')">
+            <a th:href="@{/add-salon}" class="btn btn-primary btn-lg" type="button">Add new salon </a>
+        </div>
     </div>
 </div>
-<div sec:authorise="hasRole('ADMIN')">
-    <a th:href="@{/add-salon}" class="btn btn-primary btn-lg" type="button" >Add new salon </a>
-</div>
-
 
 
 </body>

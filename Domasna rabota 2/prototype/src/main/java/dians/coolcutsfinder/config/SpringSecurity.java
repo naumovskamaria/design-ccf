@@ -2,6 +2,7 @@ package dians.coolcutsfinder.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+
 public class SpringSecurity {
 
     @Bean
@@ -27,6 +29,8 @@ public class SpringSecurity {
                 .requestMatchers("/register/**").permitAll()
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/salons/**").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/successBooking").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/book").hasAnyRole("USER","ADMIN")
                 .requestMatchers("/users").hasRole("ADMIN")
                 .requestMatchers("/add-salon").hasRole("ADMIN")
                 .requestMatchers("/add").hasRole("ADMIN")
@@ -45,4 +49,6 @@ public class SpringSecurity {
                 );
         return http.build();
     }
+
+
 }

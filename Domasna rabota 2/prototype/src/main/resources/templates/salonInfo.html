@@ -19,7 +19,10 @@
         <h2>Salon address:</h2>
         <h4><th:block th:text="${salon.getAddress()}"></th:block></h4>
         <br>
-        <button class="btn btn-primary">Make a reservation</button>
+
+
+    <a th:href="@{'/salons/{id}/book' (id=${salon.getId()})}" aria-current="true" class="btn btn-primary">Make a reservation</a>
+
     </div>
 </div>
 </body>

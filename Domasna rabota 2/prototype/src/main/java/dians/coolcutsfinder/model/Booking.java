@@ -9,11 +9,21 @@ import java.util.Date;
 @Entity
 public class Booking {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long Id;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    public User user;
+    @JoinColumn(name = "salon_id")
+    public Salon salon;
 
     public Date reservationDate;
+
+    public Booking(Salon salon, Date reservationDate) {
+        this.salon = salon;
+        this.reservationDate = reservationDate;
+    }
+
+    public Booking() {
+
+    }
 }

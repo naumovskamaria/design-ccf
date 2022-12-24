@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/successBooking}">
+    <input type="datetime-local" name="reservationDate" id="reservationDate">
+    <input type="text" name="userName" id="userName">
+    <input type="submit" class="btn btn-primary">
+</form>
+</body>
+</html>
