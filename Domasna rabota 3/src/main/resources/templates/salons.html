@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salons</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="p-2 m-3">Available Salons:</h1>
+        <div class="col-4" th:each="salon:${salonList}">
+            <div class="col-auto">
+                <div class="card m-3">
+                    <img src="https://via.placeholder.com/350x100" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <th:block th:text="${salon.getName()}"></th:block>
+                        </h5>
+                        <p class="card-text">Address:
+                            <th:block th:text="${salon.getAddress()}"></th:block>
+                        </p>
+<!--                        <a th:href="@{'/salons/{id}' (id=${salon.getId()})}" aria-current="true">Click here to book!</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        <div sec:authorise="hasRole('ADMIN')">-->
+<!--            <a th:href="@{/add-salon}" class="btn btn-primary btn-lg" type="button">Add new salon </a>-->
+<!--        </div>-->
+    </div>
+</div>
+</body>
+</html>
