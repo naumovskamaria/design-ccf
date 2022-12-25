@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/salons/reserve}">
+    <input type="hidden" name="salonId" id="salonId" th:value="${salon.getId()}">
+    <br>
+    <br>
+    <br>
+    <label for="reservationDate">Choose time:</label>
+    <input type="datetime-local" name="reservationDate" id="reservationDate">
+</form>
+</body>
+</html>
