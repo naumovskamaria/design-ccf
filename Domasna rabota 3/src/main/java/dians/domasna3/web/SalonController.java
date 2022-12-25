@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SalonController {
 
-    @GetMapping("/")
+    @GetMapping("/salon")
     public String landingPage(Model model){
         return "master-page";
     }
