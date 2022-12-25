@@ -30,7 +30,7 @@
     <h1 class="p-2 m-3">Available Salons:</h1>
     <div class="col-auto">
         <div class="card m-3" th:each="salon:${salons}">
-            <img src="https://via.placeholder.com/350x100" class="card-img-top" alt="...">
+            <img src="https://lh3.googleusercontent.com/iimntgRjoWhstUYhFG_IPkg767_oLNaaSQ9WdoQ9gTx11xhtF4MdPWS7F_PwA8PhV3TQm_BqPxFsktHFRjLwp5e_OA=w512-rw" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><th:block th:text="${salon.getName()}"></th:block></h5>
                 <p class="card-text">Address: <th:block th:text="${salon.getAddress()}"></th:block></p>
