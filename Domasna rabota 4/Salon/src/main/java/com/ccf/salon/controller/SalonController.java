@@ -1,7 +1,6 @@
 package com.ccf.salon.controller;
 
-import com.ccf.salon.dto.SalonRequest;
-import com.ccf.salon.dto.SalonResponse;
+import com.ccf.salon.model.Salon;
 import com.ccf.salon.service.SalonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,13 +17,14 @@ public class SalonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createSalon(@RequestBody SalonRequest salonRequest){
-        salonService.createSalon(salonRequest);
+    public void createSalon(@RequestParam String name,
+                            @RequestParam String address){
+        salonService.createSalon(name,address);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<SalonResponse> getAllSalons(){
+    public List<Salon> getAllSalons(){
         return salonService.getAllSalons();
     }
 }
