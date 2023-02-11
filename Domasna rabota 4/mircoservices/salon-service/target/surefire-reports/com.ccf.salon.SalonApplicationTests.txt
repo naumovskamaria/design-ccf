@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ccf.salon.SalonApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.074 s - in com.ccf.salon.SalonApplicationTests

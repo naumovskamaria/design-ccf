@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ccf.reservation.ReservationApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.666 s - in com.ccf.reservation.ReservationApplicationTests
