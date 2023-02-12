@@ -1,6 +1,5 @@
 package com.ccf.reservation.repository;
 
-import com.ccf.reservation.dto.SalonResponse;
 import com.ccf.reservation.model.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

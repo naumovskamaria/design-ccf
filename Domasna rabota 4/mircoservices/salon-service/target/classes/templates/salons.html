@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url(https://raw.githubusercontent.com/naumovskamaria/design-ccf/main/templates/background.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<nav class="navbar sticky-top navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color:#fff">Cool Cut Finder</a>
+    </div>
+</nav>
+
+<div>
+    <a class="btn btn-warning btn-lg m-3" th:href="@{'/api/salon/create'}">Add new salon</a>
+</div>
+
+<div class="container">
+    <div class="container mt-3 mb-3">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 style="color: #fff">Make a reservation:</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row" th:each="salon:${salons}">
+        <div class="col-auto p-4 m-1 bg-dark" style="border-radius: 13px">
+            <h2 style="color: #e3e3e3">Salon name:</h2>
+            <h4 style="color:#DC3545">
+                <th:block th:text="${salon.getName()}"></th:block>
+            </h4>
+            <h2 style="color: #e3e3e3">Salon address:</h2>
+            <h4 style="color:#DC3545">
+                <th:block th:text="${salon.getAddress()}"></th:block>
+            </h4>
+            <br>
+            <a th:href="@{'/api/reservation/{salonId}' (salonId=${salon.getId()})}" aria-current="true"
+               class="btn btn-danger">Make a reservation</a>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.ccf.reservation.service;
 
 
+import com.ccf.reservation.dto.Salon;
 import com.ccf.reservation.model.Reservation;
 import com.ccf.reservation.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
@@ -39,4 +40,5 @@ public class ReservationService {
             throw new IllegalArgumentException("Can create reservation for this date and time.");
         }
     }
+
 }

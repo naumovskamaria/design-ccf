@@ -6,8 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,14 +25,36 @@ public class SalonController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createSalon(@RequestParam String name,
-                            @RequestParam String address){
+                            @RequestParam String address,
+                            HttpServletResponse response) throws IOException {
         salonService.createSalon(name,address);
+        response.sendRedirect("http://localhost:8080/api/salon/allSalons");
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Salon> getAllSalons(){
+    public List<Salon> getAllSalons() {
         return salonService.getAllSalons();
+    }
+
+
+
+    @GetMapping("/allSalons")
+    @ResponseStatus(HttpStatus.OK)
+    public ModelAndView showAllSalons(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Salon> salons = this.salonService.getAllSalons();
+        modelAndView.setViewName("salons");
+        modelAndView.addObject("salons",salons);
+        return modelAndView;
+    }
+
+    @GetMapping("/create")
+    @ResponseStatus(HttpStatus.OK)
+    public ModelAndView createPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("create-salon");
+        return modelAndView;
     }
 
     @PostMapping("/{salonId}")
