@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    body {
+      background-image: url(background.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar sticky-top navbar-light bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color:#fff">Cool Cut Finder</a>
+  </div>
+</nav>
+
+<div class="d-flex align-items-center h-100">
+  <div class="w-50 mx-auto">
+    <form th:method="POST" th:action="@{/salons/reserve}">
+      <input type="hidden" name="salonId" id="salonId" th:value="${salon.getId()}">
+      <br>
+      <br>
+      <br>
+      <label for="reservationDate" style="color: #fefefe">Choose time:</label>
+      <input type="datetime-local" name="reservationDate" id="reservationDate">
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+</html>
