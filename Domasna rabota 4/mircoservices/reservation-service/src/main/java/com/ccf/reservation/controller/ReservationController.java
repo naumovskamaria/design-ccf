@@ -17,16 +17,20 @@ import java.util.List;
 public class ReservationController {
 
     private final ReservationService reservationService;
-    @PostMapping("/{salonId}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void makeReservation(@PathVariable("salonId") Integer salonId,
-                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime reservationTime) {
-        this.reservationService.makeReservation(salonId,reservationTime);
-    }
+
 
     @GetMapping("/{salonId}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Reservation> getAllReservations(@PathVariable Integer salonId){
+    public List<Reservation> getAllReservationsForSalon(@PathVariable Integer salonId){
         return this.reservationService.getAllReservations(salonId);
     }
+
+    @PostMapping("/{salonId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void makeReservationForSalon(@PathVariable Integer salonId,
+                                        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime reservationTime){
+        this.reservationService.makeReservation(salonId,reservationTime);
+    }
+
+
 }

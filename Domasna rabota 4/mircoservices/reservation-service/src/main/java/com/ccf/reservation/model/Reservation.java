@@ -23,4 +23,5 @@ public class Reservation {
         this.salonId = salonId;
         this.reservationTime = reservationTime;
     }
+
 }

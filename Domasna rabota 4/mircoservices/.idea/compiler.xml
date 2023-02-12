@@ -9,11 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="salon-service" />
         <module name="reservation-service" />
+        <module name="discovery-server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="discovery-server" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
       <module name="salon-service" options="-parameters" />
     </option>

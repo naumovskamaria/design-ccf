@@ -6,8 +6,10 @@ import com.ccf.reservation.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,21 +18,25 @@ import java.util.List;
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final WebClient webClient;
 
-    public void makeReservation(Integer salonId,LocalDateTime reservationTime){
-        List<Reservation> reservationsForSalon = this.reservationRepository.findAllBySalonId(salonId);
-        boolean isReservationTimeFree = reservationsForSalon.stream().noneMatch(reservation -> reservation.getReservationTime().equals(reservationTime));
+
+    public List<Reservation> getAllReservations(Integer salonId){
+        return this.reservationRepository.findAllBySalonId(salonId);
+    }
+
+
+    public void makeReservation(Integer salonId, LocalDateTime reservationTime) {
+        List<Reservation> reservations = getAllReservations(salonId);
+
+        boolean isReservationTimeFree = reservations.stream().noneMatch(reservation -> reservation.getReservationTime().equals(reservationTime));
 
         if(isReservationTimeFree){
             Reservation reservation = new Reservation(salonId,reservationTime);
             this.reservationRepository.save(reservation);
-            log.info("Reservation for salon {} at time {} was created",salonId,reservationTime);
+            log.info("Reservation created successfully");
         }else{
-            throw new IllegalArgumentException("Reservation for this date and time already exists. Try another date or time");
+            throw new IllegalArgumentException("Can create reservation for this date and time.");
         }
-    }
-
-    public List<Reservation> getAllReservations(Integer salonId){
-        return this.reservationRepository.findAllBySalonId(salonId);
     }
 }
