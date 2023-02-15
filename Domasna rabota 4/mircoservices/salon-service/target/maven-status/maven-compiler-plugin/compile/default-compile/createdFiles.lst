@@ -1,0 +1,6 @@
+com\ccf\salon\service\SalonService.class
+com\ccf\salon\controller\SalonController.class
+com\ccf\salon\model\Salon.class
+com\ccf\salon\repository\SalonRepository.class
+com\ccf\salon\SalonApplication.class
+com\ccf\salon\model\Salon$SalonBuilder.class
